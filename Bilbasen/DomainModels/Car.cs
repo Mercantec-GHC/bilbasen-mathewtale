@@ -1,4 +1,5 @@
-﻿namespace DomainModels
+﻿using System.Linq;
+namespace DomainModels
 {
 
 
@@ -40,14 +41,16 @@
 
        
         }
-        static List<Car> GetCarByColor(string? color)
-        {
-            if (string.IsNullOrEmpty(color))
-                return new List<Car>(); // Returner en tom liste, hvis farven er null eller tom
+        //public static List<Car> GetCarByColor(string? color)
+        //{
+        //    if (string.IsNullOrEmpty(color))
+        //        return new List<Car>(); // Returner en tom liste, hvis farven er null eller tom
 
-            // Filtrer biler baseret på farven
-            return Car.Where(car => car.Color?.Equals(color, StringComparison.OrdinalIgnoreCase) == true).ToList();
-        }
+        //    // Filtrer biler baseret på farven
+        //    return Car.Where(car => car.Color?.Equals(color, StringComparison.OrdinalIgnoreCase) == true).ToList();
+        //}
+
+
     }
 
 

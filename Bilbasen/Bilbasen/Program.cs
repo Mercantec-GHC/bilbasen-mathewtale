@@ -104,7 +104,7 @@ namespace Bilbasen
                     if (vehicle.Brand == firstvehicles.Brand)
                     {
                         int vehiclespool = vehiclescount++;
-                        Console.WriteLine($" \n {vehicle.Brand} {vehicle.Model} {vehicle.Year} \n {vehicle.Price}  \n {vehicle.Color} \n {vehicle.NumberOfCylinders} \n {vehicle.HorsePower} HP");
+                        Console.WriteLine($" \n {vehicle.Brand} {vehicle.Model} {vehicle.Year} \n {vehicle.Price}  \n color: {vehicle.Color} \n Number of cylinder: {vehicle.NumberOfCylinders} \n HorsePower: {vehicle.HorsePower} ");
                         Console.WriteLine("______________________________________________________________________");
 
                     }
@@ -118,7 +118,7 @@ namespace Bilbasen
                 foreach (var vehicle in vehicles)
                     if (vehicle.Color == "Red")
                     {
-                        Console.WriteLine($"{vehicle.Year} {vehicle.Brand} {vehicle.Model} - {vehicle.Color} - {vehicle.HorsePower} HP");
+                        Console.WriteLine($" \n {vehicle.Brand} {vehicle.Model} {vehicle.Year} \n {vehicle.Price}  \n color: {vehicle.Color} \n Number of cylinder: {vehicle.NumberOfCylinders} \n HorsePower: {vehicle.HorsePower} ");
                         Console.WriteLine("______________________________________________________________________");
 
 
@@ -131,7 +131,7 @@ namespace Bilbasen
 
                 if (vehicle.HorsePower > 200)
                 {
-                    Console.WriteLine($"{vehicle.Year} {vehicle.Brand} {vehicle.Model} - {vehicle.Color} - {vehicle.HorsePower} HP");
+                    Console.WriteLine($" \n {vehicle.Brand} {vehicle.Model} {vehicle.Year} \n {vehicle.Price}  \n color: {vehicle.Color} \n Number of cylinder: {vehicle.NumberOfCylinders} \n HorsePower: {vehicle.HorsePower} ");
                     Console.WriteLine("______________________________________________________________________");
 
                 }
@@ -145,6 +145,13 @@ namespace Bilbasen
                     Console.WriteLine("______________________________________________________________________");
                 }
                     }
+            foreach (var vehicle in vehicles)
+            {//skriver EV's ud 
+                if(vehicle.NumberOfCylinders == 0)
+                {
+                    Console.WriteLine($"{vehicle.Brand} {vehicle.Model}");
+                }
+            }
             Console.WriteLine();
             foreach(var vehicle in vehicles)
             {
