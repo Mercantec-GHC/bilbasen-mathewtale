@@ -1,5 +1,8 @@
 ﻿using System;
-
+using System.Collections.Generic;
+using System.Net.Security;
+using System.Runtime.ConstrainedExecution;
+using DomainModels;
 namespace Bilbasen
 
 {
@@ -8,165 +11,155 @@ namespace Bilbasen
         static void Main(string[] args)
         {
 
-            //List<Vehicles> vehicles = new List<Vehicles>
 
 
-            List<Vehicles> vehicles = new List<Vehicles>
+            List<Car> vehicles = new List<Car>
             {
-                new Vehicles("Ford", "Mustang", 1963, "Red", 430),
-                new Vehicles("Toyota", "Camry", 2020, "Blue", 200),
-                new Vehicles("Chevrolet", "Corvette", 2022, "Silver", 650),
-                new Vehicles("Honda", "Civic", 2018, "Black", 150),
-                new Vehicles("Nissan", "Altima", 2019, "White", 180),
-                new Vehicles("BMW", "3 Series", 2021, "Gray", 250),
-                new Vehicles("Audi", "A4", 2020, "Blue", 220),
-                new Vehicles("Volkswagen", "Passat", 2017, "Red", 170),
-                new Vehicles("Hyundai", "Elantra", 2022, "Silver", 150),
-                new Vehicles("Chevrolet", "Malibu", 2016, "Black", 160),
-                new Vehicles("Ford", "Focus", 2015, "White", 140),
-                new Vehicles("Toyota", "RAV4", 2021, "Green", 200),
-                new Vehicles("Honda", "Accord", 2020, "Blue", 190),
-                new Vehicles("Nissan", "Rogue", 2021, "Red", 180),
-                new Vehicles("BMW", "X5", 2018, "Black", 300),
-                new Vehicles("Audi", "Q5", 2020, "Silver", 250),
-                new Vehicles("Chevrolet", "Equinox", 2021, "Gray", 170),
-                new Vehicles("Toyota", "Highlander", 2019, "White", 220),
-                new Vehicles("Ford", "Escape", 2022, "Blue", 200),
-                new Vehicles("Hyundai", "Tucson", 2020, "Green", 180),
-                new Vehicles("Kia", "Sportage", 2021, "Red", 190),
-                new Vehicles("Subaru", "Forester", 2019, "Black", 180),
-                new Vehicles("Mazda", "CX-5", 2020, "Silver", 220),
-                new Vehicles("Volkswagen", "Jetta", 2021, "Blue", 170),
-                new Vehicles("Toyota", "Sienna", 2022, "White", 250),
-                new Vehicles("Honda", "Pilot", 2020, "Red", 200),
-                new Vehicles("Chevrolet", "Tahoe", 2021, "Gray", 320),
-                new Vehicles("Nissan", "Pathfinder", 2019, "Green", 240),
-                new Vehicles("Ford", "F-150", 2020, "Black", 400),
-                new Vehicles("GMC", "Sierra", 2021, "Silver", 350),
-                new Vehicles("Ram", "1500", 2018, "Blue", 400),
-                new Vehicles("Honda", "Fit", 2020, "White", 130),
-                new Vehicles("Toyota", "Camry Hybrid", 2022, "Red", 150),
-                new Vehicles("Hyundai", "Kona", 2021, "Black", 175),
-                new Vehicles("Kia", "Soul", 2020, "Green", 145),
-                new Vehicles("Subaru", "Crosstrek", 2019, "Silver", 150),
-                new Vehicles("Mazda", "CX-30", 2021, "Blue", 200),
-                new Vehicles("Volkswagen", "Golf", 2020, "Red", 170),
-                new Vehicles("Chevrolet", "Blazer", 2021, "White", 260),
-                new Vehicles("Ford", "Bronco", 2022, "Gray", 300),
-                new Vehicles("Toyota", "Land Cruiser", 2021, "Black", 400),
-                new Vehicles("Nissan", "Armada", 2020, "Silver", 390),
-                new Vehicles("BMW", "X3", 2021, "Blue", 250),
-                new Vehicles("Audi", "Q7", 2020, "Red", 333),
-                new Vehicles("Mercedes", "GLC", 2021, "White", 255),
-                new Vehicles("Jaguar", "F-Pace", 2020, "Green", 300),
-                new Vehicles("Lexus", "RX", 2021, "Black", 295),
-                new Vehicles("Volvo", "XC60", 2020, "Silver", 250),
-                new Vehicles("Porsche", "Macan", 2021, "Blue", 265),
-                new Vehicles("Mitsubishi", "Outlander", 2020, "Red", 150),
-                new Vehicles("Chrysler", "Pacifica", 2021, "White", 287),
-                new Vehicles("Buick", "Enclave", 2019, "Gray", 310),
-                new Vehicles("Honda", "Clarity", 2020, "Green", 150),
-                new Vehicles("Ford", "Fusion", 2020, "Blue", 175),
-                new Vehicles("Chevrolet", "Impala", 2020, "Black", 250),
-                new Vehicles("Toyota", "Avalon", 2020, "Red", 301),
-                new Vehicles("Kia", "K900", 2019, "Silver", 420),
-                new Vehicles("Nissan", "370Z", 2021, "Blue", 332),
-                new Vehicles("Mazda", "MX-5 Miata", 2020, "White", 181),
-                new Vehicles("Subaru", "BRZ", 2022, "Red", 228),
-                new Vehicles("Dodge", "Challenger", 2020, "Black", 375),
-                new Vehicles("Chevrolet", "Camaro", 2019, "Silver", 455),
-                new Vehicles("Ford", "GT", 2021, "Blue", 660),
-                new Vehicles("Porsche", "911", 2020, "Red", 443),
-                new Vehicles("Jaguar", "F-Type", 2021, "White", 444),
-                new Vehicles("Tesla", "Model S", 2022, "Black", 1020),
-                new Vehicles("Toyota", "Supra", 2021, "Gray", 335),
-                new Vehicles("Nissan", "GT-R", 2022, "Red", 565),
-                new Vehicles("Mitsubishi", "Eclipse", 2020, "Blue", 250),
-                new Vehicles("Volkswagen", "Beetle", 2019, "Yellow", 174),
-                new Vehicles("Hyundai", "Veloster", 2020, "Orange", 275),
-                new Vehicles("Honda", "S2000", 2020, "White", 240),
-                new Vehicles("Subaru", "WRX", 2021, "Blue", 271),
-                new Vehicles("Mazda", "Speed3", 2018, "Red", 263),
-                new Vehicles("Ford", "Maverick", 2022, "Gray", 250),
-                new Vehicles("Chevrolet", "Silverado", 2021, "Black", 420),
-                new Vehicles("Ram", "2500", 2020, "White", 400),
-                new Vehicles("Toyota", "Tundra", 2021, "Red", 381),
-                new Vehicles("GMC", "Canyon", 2019, "Silver", 275),
-                new Vehicles("Nissan", "Titan", 2020, "Blue", 400),
-                new Vehicles("Ford", "Expedition", 2021, "Gray", 400),
-                new Vehicles("Chevrolet", "Tahoe", 2022, "Black", 355),
-                new Vehicles("Honda", "CR-V", 2021, "White", 190),
-                new Vehicles("Hyundai", "Santa Fe", 2022, "Red", 227),
-                new Vehicles("Kia", "Telluride", 2021, "Silver", 291),
-                new Vehicles("Subaru", "Ascent", 2022, "Blue", 260),
-                new Vehicles("Mazda", "CX-9", 2021, "Black", 250),
-                new Vehicles("Volkswagen", "Atlas", 2021, "White", 276),
-                new Vehicles("Toyota", "Venza", 2021, "Gray", 219),
-                new Vehicles("Chevrolet", "Trailblazer", 2022, "Red", 155),
-                new Vehicles("Ford", "Explorer", 2022, "Blue", 300),
-                new Vehicles("Honda", "HR-V", 2022, "Black", 141),
-                new Vehicles("Hyundai", "Venue", 2022, "Green", 121),
-                new Vehicles("Kia", "Seltos", 2021, "Silver", 175),
-                new Vehicles("Subaru", "Outback", 2021, "Red", 182),
-                new Vehicles("Mazda", "CX-30", 2021, "White", 186),
-                new Vehicles("Volkswagen", "ID.4", 2022, "Blue", 201),
-                new Vehicles("Ford", "F-250", 2021, "Gray", 400),
-                new Vehicles("Ram", "3500", 2021, "Silver", 420)
+                new Car("Ford", "Mustang", 2021, "Red", 450, 8, "$50,000"),
+                new Car("Chevrolet", "Camaro", 2021, "Blue", 450, 8, "$52,000"),
+                new Car("Toyota", "Supra", 2022, "Red", 335, 6, "$45,000"),
+                new Car("Nissan", "GT-R", 2022, "Black", 565, 6, "$115,000"),
+                new Car("Honda", "Civic", 2020, "White", 180, 4, "$25,000"),
+                new Car("Tesla", "Model S", 2022, "Gray", 1020, 0, "$100,000"),
+                new Car("BMW", "M3", 2021, "Blue", 473, 6, "$70,000"),
+                new Car("Audi", "A4", 2020, "Silver", 248, 4, "$40,000"),
+                new Car("Mercedes", "C-Class", 2021, "Black", 255, 4, "$42,000"),
+                new Car("Volkswagen", "Golf", 2021, "Red", 170, 4, "$28,000"),
+                new Car("Kia", "Stinger", 2021, "Green", 368, 6, "$38,000"),
+                new Car("Subaru", "WRX", 2021, "Blue", 271, 4, "$30,000"),
+                new Car("Mazda", "MX-5 Miata", 2021, "Red", 181, 4, "$35,000"),
+                new Car("Porsche", "911", 2021, "Yellow", 443, 6, "$110,000"),
+                new Car("Jaguar", "F-Type", 2021, "Black", 444, 8, "$70,000"),
+                new Car("Chevrolet", "Corvette", 2021, "Silver", 495, 8, "$60,000"),
+                new Car("Ford", "F-150", 2021, "Red", 400, 6, "$30,000"),
+                new Car("GMC", "Sierra", 2021, "Blue", 355, 6, "$45,000"),
+                new Car("Ram", "1500", 2021, "White", 395, 8, "$40,000"),
+                new Car("Toyota", "RAV4", 2021, "Green", 203, 4, "$28,000"),
+                new Car("Honda", "CR-V", 2021, "Red", 190, 4, "$28,500"),
+                new Car("Hyundai", "Tucson", 2021, "Silver", 181, 4, "$26,000"),
+                new Car("Nissan", "Rogue", 2021, "Blue", 201, 4, "$27,000"),
+                new Car("Volkswagen", "Tiguan", 2021, "White", 184, 4, "$26,500"),
+                new Car("Kia", "Sportage", 2021, "Black", 187, 4, "$25,000"),
+                new Car("Chevrolet", "Equinox", 2021, "Gray", 170, 4, "$25,000"),
+                new Car("Ford", "Explorer", 2021, "Red", 300, 6, "$32,000"),
+                new Car("Toyota", "Highlander", 2021, "Blue", 295, 6, "$40,000"),
+                new Car("Honda", "Pilot", 2021, "Silver", 280, 6, "$37,000"),
+                new Car("Subaru", "Ascent", 2021, "Green", 260, 4, "$33,000"),
+                new Car("Mazda", "CX-5", 2021, "Red", 250, 4, "$28,000"),
+                new Car("Nissan", "Pathfinder", 2021, "Black", 284, 6, "$35,000"),
+                new Car("Jeep", "Grand Cherokee", 2021, "White", 295, 6, "$38,000"),
+                new Car("Chrysler", "Pacifica", 2021, "Blue", 287, 6, "$34,000"),
+                new Car("Dodge", "Durango", 2021, "Gray", 360, 8, "$39,000"),
+                new Car("Volkswagen", "Atlas", 2021, "Silver", 276, 6, "$33,000"),
+                new Car("Hyundai", "Santa Fe", 2021, "Red", 191, 4, "$28,500"),
+                new Car("Kia", "Telluride", 2021, "Black", 291, 6, "$42,000"),
+                new Car("Ford", "Escape", 2021, "Green", 200, 4, "$26,000"),
+                new Car("Chevrolet", "Trailblazer", 2021, "Blue", 155, 4, "$23,000"),
+                new Car("Toyota", "Venza", 2021, "Red", 219, 4, "$32,000"),
+                new Car("Nissan", "Rogue Sport", 2021, "White", 141, 4, "$25,500"),
+                new Car("Subaru", "Forester", 2021, "Blue", 182, 4, "$28,000"),
+                new Car("Honda", "HR-V", 2021, "Black", 141, 4, "$25,000"),
+                new Car("Mazda", "CX-30", 2021, "Silver", 186, 4, "$26,500"),
+                new Car("Hyundai", "Kona", 2021, "Green", 175, 4, "$24,000"),
+                new Car("Kia", "Seltos", 2021, "Red", 175, 4, "$23,000"),
+                new Car("Ford", "Maverick", 2022, "Gray", 250, 4, "$20,000"),
+                new Car("Chevrolet", "Silverado", 2022, "Blue", 420, 8, "$45,000"),
+                new Car("Ram", "2500", 2022, "White", 400, 8, "$50,000"),
+                new Car("Toyota", "Tacoma", 2022, "Black", 278, 6, "$30,000"),
+                new Car("Honda", "Ridgeline", 2022, "Red", 280, 6, "$36,000"),
+                new Car("Nissan", "Titan", 2022, "Silver", 400, 8, "$39,000"),
+                new Car("GMC", "Canyon", 2022, "Blue", 275, 6, "$31,000"),
+                new Car("Jeep", "Wrangler", 2022, "Green", 285, 6, "$40,000"),
+                new Car("Ford", "Bronco", 2022, "Red", 310, 6, "$35,000"),
+                new Car("Chevrolet", "Tahoe", 2022, "Black", 355, 8, "$55,000"),
+                new Car("Toyota", "Land Cruiser", 2022, "White", 400, 8, "$85,000"),
+                new Car("Subaru", "Crosstrek", 2022, "Blue", 152, 4, "$24,000"),
+                new Car("Mazda", "CX-50", 2022, "Red", 200, 4, "$28,000"),
+                new Car("Hyundai", "Palisade", 2022, "Gray", 291, 6, "$38,000"),
+                new Car("Kia", "Carnival", 2022, "Silver", 290, 6, "$32,000"),
+                new Car("Honda", "Odyssey", 2022, "Blue", 280, 6, "$39,000"),
+                new Car("Volkswagen", "ID.4", 2022, "Green", 201, 0, "$45,000"),
+                new Car("Tesla", "Model Y", 2022, "Red", 480, 0, "$60,000"),
+                new Car("Porsche", "Macan", 2022, "Silver", 265, 4, "$55,000"),
+                new Car("Jaguar", "E-Pace", 2022, "Black", 246, 4, "$44,000"),
+                new Car("Mercedes", "GLC", 2022, "Blue", 255, 4, "$53,000"),
+                new Car("BMW", "X3", 2022, "Gray", 248, 6, "$54,000"),
+                new Car("Volvo", "XC60", 2022, "Red", 250, 4, "$52,000"),
+                new Car("Lexus", "RX", 2022, "White", 295, 6, "$57,000"),
+                new Car("Acura", "RDX", 2022, "Green", 272, 4, "$42,000"),
+                new Car("Infiniti", "QX50", 2022, "Blue", 268, 4, "$45,000"),
+                new Car("Genesis", "GV70", 2022, "Black", 300, 6, "$60,000"),
+                new Car("Alfa Romeo", "Stelvio", 2022, "Silver", 280, 4, "$48,000"),
+                new Car("Fiat", "500", 2022, "Red", 135, 4, "$20,000")
             };
+
+
             if (vehicles.Count > 0)
             {
-                var firstCar = vehicles[0];
-
+                var firstvehicles = vehicles[0];
+                int vehiclescount = 0;
                 foreach (var vehicle in vehicles)
                 {
 
-                    if (vehicle.Brand == firstCar.Brand)
+                    if (vehicle.Brand == firstvehicles.Brand)
                     {
-                        Console.WriteLine($"{vehicle.Year} {vehicle.Brand} {vehicle.Model} - {vehicle.Color} - {vehicle.Horsepower} HP");
+                        int vehiclespool = vehiclescount++;
+                        Console.WriteLine($" \n {vehicle.Brand} {vehicle.Model} {vehicle.Year} \n {vehicle.Price}  \n {vehicle.Color} \n {vehicle.NumberOfCylinders} \n {vehicle.HorsePower} HP");
                         Console.WriteLine("______________________________________________________________________");
 
                     }
                     else { }
-
+                    
 
                 }
+                Console.WriteLine("");
+                Console.WriteLine(vehiclescount );
+                Console.WriteLine("");
                 foreach (var vehicle in vehicles)
                     if (vehicle.Color == "Red")
                     {
-                        Console.WriteLine($"{vehicle.Year} {vehicle.Brand} {vehicle.Model} - {vehicle.Color} - {vehicle.Horsepower} HP");
+                        Console.WriteLine($"{vehicle.Year} {vehicle.Brand} {vehicle.Model} - {vehicle.Color} - {vehicle.HorsePower} HP");
                         Console.WriteLine("______________________________________________________________________");
 
 
                     }
 
             }
+            Console.WriteLine();
             foreach (var vehicle in vehicles)
             {
 
-                if (vehicle.Horsepower > 200)
+                if (vehicle.HorsePower > 200)
                 {
-                    Console.WriteLine($"{vehicle.Year} {vehicle.Brand} {vehicle.Model} - {vehicle.Color} - {vehicle.Horsepower} HP");
+                    Console.WriteLine($"{vehicle.Year} {vehicle.Brand} {vehicle.Model} - {vehicle.Color} - {vehicle.HorsePower} HP");
                     Console.WriteLine("______________________________________________________________________");
 
                 }
             }
-        }
-        public class Vehicles
-        {
-            public string? Brand { get; set; }
-            public string? Model { get; set; }
-            public int Year { get; set; }
-            public string? Color { get; set; }
-            public int Horsepower { get; set; }
-
-            public Vehicles(string? brand, string? model, int year, string? color, int horsepower)
+            Console.WriteLine();
+            foreach (var vehicle in vehicles)
             {
-                Brand = brand;
-                Model = model;
-                Year = year;
-                Color = color;
-                Horsepower = horsepower;
+                if(vehicle.Year >= 1980 && vehicle.Year <= 1999)
+                {
+                    Console.WriteLine($"{vehicle.Year} {vehicle.Brand} {vehicle.Model} - {vehicle.Color} - {vehicle.HorsePower}");
+                    Console.WriteLine("______________________________________________________________________");
+                }
+                    }
+            Console.WriteLine();
+            foreach(var vehicle in vehicles)
+            {
+
+                string? vehiclesInput;
+                vehiclesInput = Console.ReadLine();
+
+                if(!string.IsNullOrEmpty(vehiclesInput) && vehiclesInput.Equals(vehicle.Brand, StringComparison.OrdinalIgnoreCase))
+                {
+                    Console.WriteLine($"{vehicle.Brand} {vehicle.Color}");
+                    continue;
+                }
+                else { }
             }
         }
+
     }
 }
